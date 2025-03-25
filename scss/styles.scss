@@ -1,9 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+
 %df {
   display: flex;
 }
 
 %aic {
   align-items: center;
+}
+
+%aifs {
+  align-items: flex-start;
+}
+
+%aife {
+  align-items: flex-end;
 }
 
 %jcsa {
@@ -23,19 +35,33 @@
   align-items: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-a {
-  color: wheat;
+button {
+  padding: 0.7rem 1.5rem;
+  background: #13ae92;
+  border: 1px solid #13ae92;
+  transition: 0.3s;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+button:hover {
+  background: transparent;
 }
 
 header {
   min-height: 100vh;
-
+  overflow: hidden;
   background: url("../assets/header\ bg.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -54,9 +80,55 @@ header {
       @extend %dfaic;
       gap: 50px;
 
+      a {
+        color: white;
+      }
+
       .nav-links {
         @extend %dfaic;
+        gap: 1.25rem;
       }
     }
   }
+
+  .header-content {
+    @extend %dfaic, %jcsa;
+    margin-top: 50px;
+    gap: 200px;
+    div {
+      width: 548px;
+      height: 548px;
+    }
+    .left {
+      @extend %df, %fdc, %aifs;
+      justify-content: center;
+      gap: 20px;
+      span {
+        color: #119786;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      h1 {
+        color: #ffffff;
+        font-size: 61px;
+        font-weight: 700;
+        line-height: 125%;
+      }
+      p {
+        color: #ffffff;
+        opacity: 70%;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+    .right {
+      background: url(../assets/watch.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.section-1 {
+    @extend %df, 
 }
