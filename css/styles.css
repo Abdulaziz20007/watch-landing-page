@@ -1,0 +1,35 @@
+header nav .nav-content .nav-links, header nav .nav-content, header {
+  display: flex;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: wheat;
+}
+
+header {
+  min-height: 100vh;
+  background: url("../assets/header bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  flex-direction: column;
+}
+header nav {
+  display: flex;
+  width: 150%;
+  justify-content: space-around;
+  padding: 2rem 10rem;
+}
+header nav .nav-content {
+  gap: 50px;
+}
+
+/*# sourceMappingURL=styles.css.map */
