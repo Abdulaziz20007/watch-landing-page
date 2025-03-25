@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-
-
 %df {
   display: flex;
 }
@@ -22,6 +20,10 @@
   justify-content: space-around;
 }
 
+%jcc {
+  justify-content: center;
+}
+
 %jcsb {
   justify-content: space-between;
 }
@@ -31,12 +33,26 @@
 }
 
 %dfaic {
-  display: flex;
-  align-items: center;
+  @extend %df, %aic;
+}
+
+%center {
+  @extend %df, %aic;
+  justify-content: center;
+}
+
+@mixin font-style($size, $weight, $line-height) {
+  font-size: $size * 1px;
+  font-weight: $weight;
+  line-height: $line-height * 1%;
 }
 
 a {
   text-decoration: none;
+}
+
+section {
+  min-height: 100vh;
 }
 
 * {
@@ -57,6 +73,7 @@ button {
 }
 button:hover {
   background: transparent;
+  color: #13ae92;
 }
 
 header {
@@ -110,15 +127,12 @@ header {
       }
       h1 {
         color: #ffffff;
-        font-size: 61px;
-        font-weight: 700;
-        line-height: 125%;
+        @include font-style(61, 700, 125);
       }
       p {
         color: #ffffff;
         opacity: 70%;
-        font-size: 16px;
-        font-weight: 400;
+        @include font-style(16, 400, 160);
       }
     }
     .right {
@@ -130,5 +144,111 @@ header {
 }
 
 .section-1 {
-    @extend %df, 
+  @extend %center;
+  .content {
+    @extend %dfaic, %jcsb;
+    min-width: 1150px;
+    min-height: 650px;
+
+    .left {
+      @extend %dfaic;
+      height: 100%;
+      gap: 50px;
+      div {
+        height: 100%;
+        gap: 20px;
+        @extend %dfaic, %fdc;
+      }
+      .left {
+        @extend %jcc;
+      }
+      .card {
+        @extend %df, %fdc, %aifs, %jcsa;
+        padding: 10px;
+        height: 300px;
+        width: 260px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02),
+          0 1px 3px rgba(0, 0, 0, 0.02);
+        border-radius: 10px;
+        a,
+        p,
+        h1 {
+          color: black;
+        }
+        h1 {
+          @include font-style(22, 500, 150);
+        }
+        p {
+          opacity: 0.7;
+          @include font-style(14, 400, 160);
+        }
+        a {
+          @include font-style(14, 500, 160);
+        }
+      }
+    }
+    .right {
+      @extend %center;
+      .content {
+        min-width: 410px;
+        min-height: 233px;
+        width: 410px;
+        height: 233px;
+        @extend %df, %fdc, %aifs;
+
+        h1 {
+          @include font-style(31, 600, 140);
+        }
+        p {
+          @include font-style(16, 400, 160);
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+
+.section-2 {
+  background: url(../assets/section2\ bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 572px;
+  padding: 0 10rem 0 20rem;
+
+  @extend %dfaic, %jcsb;
+  div {
+    @extend %df, %aifs, %fdc, %jcsa;
+    max-width: 500px;
+    min-height: 390px;
+    width: 50%;
+    color: #fff;
+    h1 {
+      @include font-style(31, 600, 140);
+    }
+    p {
+      @include font-style(16, 400, 160);
+      opacity: 0.7;
+
+      span {
+        @include font-style(22, 500, 150);
+      }
+    }
+  }
+  .right {
+    .img {
+      background: url(../assets/watch2.png);
+      height: 432px;
+      width: 266px;
+    }
+  }
+}
+
+.section-3 {
+  padding: 85px 0;
+  .content {
+    width: 1100px;
+    height: 1500px;
+    margin: 0 auto;
+  }
 }
